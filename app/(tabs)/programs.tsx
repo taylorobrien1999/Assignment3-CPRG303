@@ -2,6 +2,22 @@ import { FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, Vi
 import { Ionicons } from '@expo/vector-icons';
 
 export default function ProgramsScreen() {
+  const PROGRAMS = [
+  {
+    id: '1',
+    title: 'Flow for Growth',
+    description: 'Stretch out and reach inwards as you grow your practice, one flow at a time.',
+    duration: '2-3 weeks, bodyweight only',
+    bg: '#551313'
+  },
+  {
+    id: '2',
+    title: 'Core Reset',
+    description: 'Build core muscles through controlled movements and contractions.',
+    duration: '3–4 weeks, minimal equipment',
+    bg: '#133877'
+  },
+];
   return (
     <ScrollView style={styles.container}>
       {/* Top profile row */}
@@ -12,6 +28,24 @@ export default function ProgramsScreen() {
           </View>
           <Text style={styles.pageTitle}>Programs</Text>
 
+          {/*Program Section*/}
+        {PROGRAMS.map((item) => (
+        <TouchableOpacity
+          key={item.id}
+          style={[styles.programCard, { backgroundColor: item.bg }]}
+          activeOpacity={0.8}
+          onPress={() => console.log("Pressed program:", item.title)}>
+    
+          <Text style={styles.programTitle}>{item.title}</Text>
+
+          <View style={styles.programInfo}>
+            <Text style={styles.programDesc}>{item.description}</Text>
+            <Text style={styles.programMeta}>{item.duration}</Text>
+          </View>
+        </TouchableOpacity>
+        ))}
+
+
     </ScrollView>
   );
 }
@@ -19,13 +53,13 @@ export default function ProgramsScreen() {
 const styles = StyleSheet.create({
   container: { 
     flex: 1, 
-    backgroundColor: '#fff' 
+    backgroundColor: '#ffffff' 
   },
   title: { 
     color: '#111', 
     fontSize: 28, 
     fontWeight: '800', 
-    padding: 16 
+    padding: 16, 
   },
   avatar: {
     width: 36,
@@ -41,7 +75,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingTop: 16,
-    paddingBottom: 4,
+    paddingBottom: 8,
   },
   avatarText: { 
     fontSize: 13, 
@@ -52,7 +86,39 @@ const styles = StyleSheet.create({
     fontSize: 28, 
     fontWeight: '800', 
     paddingHorizontal: 16, 
-    paddingBottom: 12, 
+    paddingBottom: 16, 
     color: '#111' 
   },
+
+  //Program card styles
+  programCard: {
+    marginHorizontal: 16,
+    marginBottom: 20,
+    borderRadius: 10,
+    height: 380,
+    justifyContent: 'flex-end',
+    overflow: 'hidden',
+  },
+  programTitle: {
+    position: 'absolute',
+    bottom: 110,
+    left: 25,
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: '800',
+  },
+  programInfo: {
+    backgroundColor: '#e6e6e6',
+    padding: 16,
+  },
+  programDesc: {
+    fontSize: 13,
+    color: '#333',
+    marginBottom: 6,
+  },
+  programMeta: {
+    fontSize: 12,
+    color: '#666',
+  },
+
 });
