@@ -1,8 +1,6 @@
-import { FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function ProgramsScreen() {
-  const PROGRAMS = [
+const PROGRAMS = [
   {
     id: '1',
     title: 'Flow for Growth',
@@ -18,6 +16,8 @@ export default function ProgramsScreen() {
     bg: '#133877'
   },
 ];
+
+export default function ProgramsScreen() {
   return (
     <ScrollView style={styles.container}>
       {/* Top profile row */}
@@ -28,7 +28,7 @@ export default function ProgramsScreen() {
           </View>
           <Text style={styles.pageTitle}>Programs</Text>
 
-          {/*Program Section*/}
+        {/*Program Section*/}
         {PROGRAMS.map((item) => (
         <TouchableOpacity
           key={item.id}
@@ -40,7 +40,7 @@ export default function ProgramsScreen() {
 
           <View style={styles.programInfo}>
             <Text style={styles.programDesc}>{item.description}</Text>
-            <Text style={styles.programMeta}>{item.duration}</Text>
+            <Text style={styles.programDur}>{item.duration}</Text>
           </View>
         </TouchableOpacity>
         ))}
@@ -53,13 +53,7 @@ export default function ProgramsScreen() {
 const styles = StyleSheet.create({
   container: { 
     flex: 1, 
-    backgroundColor: '#ffffff' 
-  },
-  title: { 
-    color: '#111', 
-    fontSize: 28, 
-    fontWeight: '800', 
-    padding: 16, 
+    backgroundColor: '#161616' 
   },
   avatar: {
     width: 36,
@@ -71,7 +65,6 @@ const styles = StyleSheet.create({
   },
   topBar: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingTop: 16,
@@ -84,10 +77,10 @@ const styles = StyleSheet.create({
   },
   pageTitle: { 
     fontSize: 28, 
-    fontWeight: '800', 
+    fontWeight: '400', 
     paddingHorizontal: 16, 
     paddingBottom: 16, 
-    color: '#111' 
+    color: '#ffffff' 
   },
 
   //Program card styles
@@ -105,20 +98,21 @@ const styles = StyleSheet.create({
     left: 25,
     color: '#fff',
     fontSize: 24,
-    fontWeight: '800',
+    fontWeight: '400',
   },
   programInfo: {
-    backgroundColor: '#e6e6e6',
+    backgroundColor: '#252525',
     padding: 16,
   },
   programDesc: {
     fontSize: 13,
-    color: '#333',
+    color: '#d4d4d4',
     marginBottom: 6,
   },
-  programMeta: {
+  programDur: {
     fontSize: 12,
     color: '#666',
   },
 
 });
+ 
