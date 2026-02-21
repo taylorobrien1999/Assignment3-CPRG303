@@ -40,7 +40,7 @@ export default function ActivityScreen() {
 
       <Text style={styles.pageTitle}>Activity</Text>
 
-      {/* Tabs row */}
+      
       <View style={styles.tabsRow}>
         <TouchableOpacity
           activeOpacity={0.8}
