@@ -24,7 +24,7 @@ export default function WorkoutsScreen() {
     return matchesCategory && matchesQuery;
   });
 
-  // Split into two sections for display (NTC style)
+  // Split into two sections for display 
   const section1 = filtered.slice(0, 3);
   const section2 = filtered.slice(3);
 
